@@ -835,7 +835,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         if query.from_user.id in ADMINS:
-            await query.message.edit_text(text=START_MESSAGE.format(query.from_user.mention, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
+            await query.message.edit_text(text=START_MESSAGE.format(user=query.from_user.mention, bot=temp.B_LINK), reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
         else:
             await query.answer("Your Not Authorizer ⚠️", show_alert=True)
 
