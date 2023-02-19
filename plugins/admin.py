@@ -5,6 +5,14 @@ from info import BOT_START_TIME, ADMINS
 from utils import humanbytes  
 
 
+import time
+
+import traceback
+
+from requests import post
+
+from subprocess import getoutput as run
+
 @Client.on_message(filters.private & filters.command("status") & filters.user(ADMINS))          
 async def stats(bot, update):
     currentTime = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - BOT_START_TIME))
